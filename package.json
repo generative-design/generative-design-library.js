@@ -1,0 +1,31 @@
+{
+  "name": "generative-design-library.js",
+  "version": "0.0.1",
+  "description": "Javascript library for the book Generative Design",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist": "browserify index.js --standalone gd -o dist/generative-design-library.js",
+    "watch": "watchify index.js --standalone gd -o dist/generative-design-library.js --debug --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/generative-design/generative-design-library.js.git"
+  },
+  "keywords": [
+    "processing",
+    "p5",
+    "generative",
+    "computational",
+    "design"
+  ],
+  "author": "Benedikt Groß <bg@benedikt-gross.de>",
+  "bugs": {
+    "url": "https://github.com/generative-design/generative-design-library.js/issues"
+  },
+  "homepage": "https://github.com/generative-design/generative-design-library.js",
+  "dependencies": {
+    "ase-utils": "^0.1.1",
+    "lodash": "^3.10.1"
+  }
+}
