@@ -1,7 +1,7 @@
 'use strict';
 
 var color = require('./color');
-
+var pkgInfo = require('./package.json');
 
 /**
  * Returns neatly formated timestamp as string e.g. "151025_172441_790"
@@ -28,5 +28,6 @@ var timestamp = function(){
   return [year,month,day,"_",hour,minute,second,"_",millis].join('');
 };
 
+module.exports.version = pkgInfo.version;
 module.exports.timestamp = timestamp;
 module.exports.ase = color.ase;

@@ -3,17 +3,17 @@
 p5.js Library for the book Generative Design
 
 
-´´´
+```
 $ brew install node
 $ npm install -g browserify
 $ npm install -g watchify
-´´´
+```
 
 
-´´´
+```
 $ npm run dist
 $ npm run watch
-´´
+```
 
 
 Acknowledgements
