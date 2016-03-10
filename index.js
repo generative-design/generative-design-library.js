@@ -1,7 +1,9 @@
 'use strict';
 
-var color = require('./color');
 var pkgInfo = require('./package.json');
+
+var color = require('./color');
+var WacomTablet = require('./WacomTablet.js');
 
 /**
  * Returns neatly formated timestamp as string e.g. "151025_172441_790"
@@ -31,3 +33,4 @@ var timestamp = function(){
 module.exports.version = pkgInfo.version;
 module.exports.timestamp = timestamp;
 module.exports.ase = color.ase;
+module.exports.WacomTablet = WacomTablet;
