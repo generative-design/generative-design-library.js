@@ -1,37 +1,41 @@
 <html>
-  <body>
-	<script src="p5.js"></script>
-	<script src="../dist/generative-design-library.js"></script>
-	<script type="text/javascript">
-		var colors;
-		function setup() {
-			createCanvas(256, 256);
-			colors = [
-				color(0),
-				color(255),
-				color(255,0,0),
-				color(0,255,0),
-				color(0,0,255),
-				color(128),
-				color('orange')
-			];
-		}
+	<head>
+		<meta charset="UTF-8">
+		<script src="p5.js"></script>
+		<script src="../dist/generative-design-library.js"></script>
+		<style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var colors;
+			function setup() {
+				createCanvas(256, 256);
+				colors = [
+					color(0),
+					color(255),
+					color(255,0,0),
+					color(0,255,0),
+					color(0,0,255),
+					color(128),
+					color('orange')
+				];
+			}
 
-		function draw() {
-			background(colors[0]);
-			noStroke();
-			var w = width/colors.length;
-				for (var i = 0; i < colors.length; i++) {
-					fill(colors[i]);
-					rect(i*w, 0, w, height);
+			function draw() {
+				background(colors[0]);
+				noStroke();
+				var w = width/colors.length;
+					for (var i = 0; i < colors.length; i++) {
+						fill(colors[i]);
+						rect(i*w, 0, w, height);
+					};
+			}
+
+			function keyReleased() {
+				if (key == 's' || key == 'S') {
+					writeFile([gd.ase.encode( colors )], 'my-palette', 'ase');
 				};
-		}
-
-		function keyReleased() {
-			if (key == 's' || key == 'S') {
-				writeFile([gd.ase.encode( colors )], 'my-palette', 'ase');
-			};
-		}
-	</script>
-  </body>
+			}
+		</script>
+	</body>
 </html>
