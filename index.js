@@ -1,9 +1,10 @@
 'use strict';
 
-var pkgInfo = require('./package.json');
-
+var packageInfo = require('./package.json');
 var color = require('./color');
 var WacomTablet = require('./WacomTablet.js');
+
+console.log("%c * "+ packageInfo.name +" "+ packageInfo.version + " * ", "background: #948816; color: #fff");
 
 /**
  * Returns neatly formated timestamp as string e.g. "151025_172441_790"
@@ -30,7 +31,7 @@ var timestamp = function(){
   return [year,month,day,"_",hour,minute,second,"_",millis].join('');
 };
 
-module.exports.version = pkgInfo.version;
+module.exports.version = packageInfo.version;
 module.exports.timestamp = timestamp;
 module.exports.ase = color.ase;
 module.exports.WacomTablet = WacomTablet;
