@@ -29,7 +29,7 @@ var aseEncode = function(p5colors){
 	function checkAndAddSwatch(c) {
 		if (c instanceof p5.Color) {
   		swatches.colors.push({
-  	    "name": c.rgba.slice(0,3).join('-'),
+  	    "name": c._array.slice(0,3).join('-'),
   	    "model": "RGB",
   	    "color": c._array.slice(0,3),
   	    "type": "global"
