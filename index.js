@@ -4,7 +4,7 @@ var packageInfo = require('./package.json');
 var color = require('./color');
 var WacomTablet = require('./WacomTablet.js');
 
-console.log("%c * "+ packageInfo.name +" "+ packageInfo.version + " * ", "background: #948816; color: #fff");
+console.log("%c * "+ packageInfo.name +" "+ packageInfo.version + " * ", "background: #3c3; color: black");
 
 /**
  * Returns neatly formated timestamp as string e.g. "151025_172441_790"
