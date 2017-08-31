@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="p5.js"></script>
+    <script src="../dist/generative-design-library.js"></script>
+    <script src="treemap_json_data.js"></script>
+    <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var treemap;
+
+      var doSort = true;
+      var rowDirection = 'both';
+
+      function setup() {
+        createCanvas(windowWidth, windowHeight);
+
+        // create the treemap
+        treemap = new gd.Treemap(1, 1, width - 3, height - 3, {
+          sort: doSort,
+          direction: rowDirection,
+          padding: 0.5,
+        });
+        // add data giving a json object and the keys where to find the children, 
+        // the size/count value and optionally what data to store.
+        treemap.addJSON(data, "children", "size");
+        // calculate the treemap
+        treemap.calculate();
+
+        // override the draw method of the class
+        gd.Treemap.prototype.draw = function() {
+          if (!this.ignored) {
+            rect(this.x, this.y, this.w, this.h);
+            for (var i = 0; i < this.items.length; i++) {
+              this.items[i].draw();
+            }
+          }
+        }
+      }
+
+      function draw() {
+        background(255);
+
+        noFill();
+        stroke(0);
+        strokeWeight(0.5);
+        treemap.draw();
+
+        noLoop();
+      }
+
+    </script>
+  </body>
+</html>
