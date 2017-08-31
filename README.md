@@ -1,6 +1,6 @@
 # generative-design-library.js
 
-[p5.js](https://p5js.org/) library for the book [Generative Design](http://www.generative-gestaltung.de/)
+Javascript library for the book [Generative Design](http://www.generative-gestaltung.de/). Intended to be used with [p5.js](https://p5js.org/) sketches.
 
 ## Install
 
@@ -134,7 +134,7 @@ if there is already another treemap with that data.
 **Parameters**
 
 -   `data` **([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) \| [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** the data element (e.g. a String)
--   `count`  
+-   `count`
 
 Returns **[Treemap](#treemap)** Returns the new Treemap
 
