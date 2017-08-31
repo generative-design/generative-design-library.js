@@ -4,7 +4,6 @@
 // http://www.wacomeng.com/web/TestFBPluginTable.html
 
 function WacomTablet() {
-	this._setupWacomPlugin();
 	this.penValues = {
 		// wacom
 		isWacom: null,
@@ -24,28 +23,7 @@ function WacomTablet() {
 		tabletModel: null,
 		// calculated
 		azimuth: null,
-		altitude: null,
-		// mouse
-		mouseX: null,
-		mouseY: null
-	}
-};
-
-WacomTablet.prototype._setupWacomPlugin = function() {
-	var that = this;
-	if (!document.getElementById('wtPlugin')) {
-		console.info("WacomTablet(), create Wacom Tablet Plugin element")
-		var div = document.createElement('div');
-		div.innerHTML = '<object id="wtPlugin" type="application/x-wacomtabletplugin"><param name="onload" value="pluginLoaded"></object>';
-		document.body.appendChild(div);
-
-		// set current mouse position, no tablet values
-		document.onmousemove = function(e){
-		    that.penValues.mouseX = e.pageX;
-		    that.penValues.mouseY = e.pageY;
-		}
-	} else {
-		console.error("Can't create Wacom Tablet Plugin element. Maybe running Chrome? The Wacom Tablet Plugin works just with Firefox and Safari.");
+		altitude: null
 	}
 };
 
@@ -74,6 +52,11 @@ WacomTablet.prototype._getWacomPlugin = function() {
 
 WacomTablet.prototype._update = function() {
 	var wtPlugin = this._getWacomPlugin();
+
+	// is wacom tablet around?
+	if (!wtPlugin) return this.penValues;
+	if (!wtPlugin.penAPI) return this.penValues;
+
 	this.penValues.isWacom = wtPlugin.penAPI.isWacom;
 	this.penValues.isEraser = wtPlugin.penAPI.isEraser;
 	this.penValues.pressure = wtPlugin.penAPI.pressure;
