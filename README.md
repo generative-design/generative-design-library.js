@@ -3,7 +3,7 @@ work in progress! plz ignore!
 generative-design-library.js
 =============================
 
-p5.js library for the book [Generative Design](http://www.generative-gestaltung.de/)
+[p5.js](https://p5js.org/) library for the book [Generative Design](http://www.generative-gestaltung.de/)
 
 Developer Setup
 ---------------
