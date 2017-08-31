@@ -1,20 +1,22 @@
 {
   "name": "generative-design-library.js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Javascript library for the book Generative Design",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "browserify index.js --standalone gd -o dist/generative-design-library.js && browserify index.js --standalone gd | uglifyjs > dist/generative-design-library.min.js",
-    "watch": "watchify index.js --standalone gd -o dist/generative-design-library.js --debug --verbose"
+    "bundle": "browserify index.js --standalone gd -o dist/generative-design-library.js",
+    "dist": "npm run bundle && browserify index.js --standalone gd | uglifyjs > dist/generative-design-library.min.js",
+    "watch": "watch 'npm run bundle' ."
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/generative-design/generative-design-library.js.git"
   },
   "keywords": [
-    "processing",
     "p5",
+    "p5.js",
+    "processing",
     "generative",
     "computational",
     "design"
@@ -25,12 +27,11 @@
   },
   "homepage": "https://github.com/generative-design/generative-design-library.js",
   "dependencies": {
-    "ase-utils": "^0.1.1",
-    "lodash": "^3.10.1"
+    "ase-utils": "^0.1.1"
   },
   "devDependencies": {
-    "browserify": "^12.0.1",
-    "uglify-js": "^2.6.2",
-    "watchify": "^3.6.1"
+    "browserify": "^14.4.0",
+    "uglify-js": "^3.0.28",
+    "watch": "^1.0.2"
   }
 }
