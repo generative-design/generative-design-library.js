@@ -6,7 +6,7 @@
 /**
  * Use a Wacom tablet in your browser. Currently works only in Safari. Support of the Wacom browser plugin seems to be fading out. You have to add this to your html:
  *
- * <object id="wtPlugin" type="application/x-wacomtabletplugin"></object>
+ * `<object id="wtPlugin" type="application/x-wacomtabletplugin"></object>`
  *
  * @see {@link http://www.wacomeng.com/web/}
  * @class
