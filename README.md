@@ -1,5 +1,3 @@
-work in progress! plz ignore!
-=============================
 generative-design-library.js
 =============================
 
