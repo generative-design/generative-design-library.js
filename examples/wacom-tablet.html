@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="p5.js"></script>
+    <script src="../dist/generative-design-library.js"></script>
+    <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var tablet;
+
+      function setup() {
+        createCanvas(512, 512);
+        tablet = new gd.WacomTablet();
+        console.log(tablet.values());
+      }
+
+      function draw() {
+        background(128);
+
+        var tabletValues = tablet.values();
+        fill(0);
+        noStroke();
+        displayWacomValues(tabletValues);
+
+        var dia = 5 + tabletValues.pressure * 100;
+        ellipse(mouseX, mouseY, dia, dia);
+
+        stroke(0,255,0);
+        strokeWeight(2);
+        var angle = tabletValues.azimuth;
+        var penLength = Math.cos(tabletValues.altitude);
+        push();
+        translate(mouseX, mouseY);
+        rotate(angle);
+        line(0,0, penLength*250, 0);
+        pop();
+      }
+
+      function displayWacomValues(values) {
+        var padding = 15;
+        var i = 0;
+        for (k in values) {
+          text(k+":  "+values[k], 5, 15+i*padding);
+          i += 1;
+        }
+      }
+
+      function pluginLoaded() {
+        console.info("Wacom tablet plugin loaded!")
+      }
+    </script>
+    <object id="wtPlugin" type="application/x-wacomtabletplugin" width="1" height="1" style="position:absolute; left:0px; top:0px">
+      <param name="onload" value="pluginLoaded" />
+    </object>
+  </body>
+</html>
