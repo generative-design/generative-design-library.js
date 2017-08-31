@@ -3,6 +3,15 @@
 // http://www.wacomeng.com/web/
 // http://www.wacomeng.com/web/TestFBPluginTable.html
 
+/**
+ * Use a Wacom tablet in your browser. Currently works only in Safari. Support of the Wacom browser plugin seems to be fading out. You have to add this to your html:
+ *
+ * <object id="wtPlugin" type="application/x-wacomtabletplugin"></object>
+ *
+ * @see {@link http://www.wacomeng.com/web/}
+ * @class
+ * @constructor
+ */
 function WacomTablet() {
 	this.penValues = {
 		// wacom
@@ -83,6 +92,11 @@ WacomTablet.prototype._update = function() {
 	return this.penValues;
 };
 
+/**
+ * Get the current values a Wacom tablet
+ *
+ * @return {Object} with properties: isWacom, isEraser, pressure, sysX, sysY, tabX, tabY, rotationDeg, rotationRad, tiltX, tiltY, tangPressure, version, pointerType, tabletModel, azimuth, altitude
+ */
 WacomTablet.prototype.values = function() {
 	return this._update();
 };

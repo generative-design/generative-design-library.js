@@ -17,6 +17,7 @@
  * Would be nice to have...
  * TODO: Alternative constructor
  * @class Treemap
+ * @ignore
  * @constructor
  * @param  {Array} data       data to store. A plain or nested array of numbers or objects.
                               If the elements are numbers they are the counters. If objects, countkey names the key to use as a counter
@@ -26,6 +27,7 @@
 
 /**
  * @class Treemap
+ * @ignore
  * @constructor (mainly for internal use)
  * @param  {Treemap} parent   the parent Treemap
  * @param  {String|Number|Object|Array} data  one data element to store. could be anything.
@@ -35,6 +37,7 @@
 
 /**
  * @class Treemap
+ * @ignore
  * @constructor (mainly for internal use)
  * @param  {Treemap} parent   the parent Treemap
  * @return {Treemap}          the created empty Treemap
@@ -335,6 +338,8 @@ function Treemap() {
 /**
  * Randomize array element order in-place.
  * Using Durstenfeld shuffle algorithm.
+ *
+ * @ignore
  */
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
