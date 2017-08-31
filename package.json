@@ -1,13 +1,14 @@
 {
   "name": "generative-design-library.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Javascript library for the book Generative Design",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "bundle": "browserify index.js --standalone gd -o dist/generative-design-library.js",
     "dist": "npm run bundle && browserify index.js --standalone gd | uglifyjs > dist/generative-design-library.min.js",
-    "watch": "watch 'npm run bundle' ."
+    "watch": "watch 'npm run bundle' .",
+    "documentation": "documentation readme index.js --section=API"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "browserify": "^14.4.0",
+    "documentation": "^5.2.2",
     "uglify-js": "^3.0.28",
     "watch": "^1.0.2"
   }

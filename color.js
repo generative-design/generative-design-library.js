@@ -2,13 +2,46 @@
 
 var aseUtils = require('ase-utils');
 
+
+/**
+ * Color constant
+ * @property {String}
+ */
 var RED = "red";
+/**
+ * Color constant
+ * @property {String}
+ */
 var GREEN = "green";
+/**
+ * Color constant
+ * @property {String}
+ */
 var BLUE = "blue";
+/**
+ * Color constant
+ * @property {String}
+ */
 var HUE = "hue";
+/**
+ * Color constant
+ * @property {String}
+ */
 var SATURATION = "saturation";
+/**
+ * Color constant
+ * @property {String}
+ */
 var BRIGHTNESS = "brightness";
+/**
+ * Color constant
+ * @property {String}
+ */
 var GRAYSCALE = "grayscale";
+/**
+ * Color constant
+ * @property {String}
+ */
 var ALPHA = "alpha";
 
 

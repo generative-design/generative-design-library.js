@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Creates a new empty Treemap. Content may be added using addData() or addTreemap().
+ * Creates a new empty Treemap. Content may be added using addData(), addJSON() or addTreemap().
  *
  * @class Treemap
  * @constructor
@@ -15,6 +15,7 @@
 
 /**
  * @class Treemap
+ * @ignore
  * @constructor (mainly for internal use)
  * @param  {Treemap} parent   the parent Treemap
  * @param  {String|Number|Object|Array} data  one data element to store. could be anything. 
@@ -24,6 +25,7 @@
 
 /**
  * @class Treemap
+ * @ignore
  * @constructor (mainly for internal use)
  * @param  {Treemap} parent   the parent Treemap
  * @return {Treemap}          the created empty Treemap 
@@ -357,6 +359,8 @@ function Treemap() {
 /**
  * Randomize array element order in-place.
  * Using Durstenfeld shuffle algorithm.
+ *
+ * @ignore
  */
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
