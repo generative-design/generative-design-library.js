@@ -1,4 +1,4 @@
-data = {
+dataObj = {
   "type": "directory",
   "name": "p5js",
   "children": [
