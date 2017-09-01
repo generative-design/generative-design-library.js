@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="p5.js"></script>
+    <script src="../dist/generative-design-library.js"></script>
+    <script src="treemap_json_data.js"></script>
+    <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // You can fill the Treemap with different structures. 
+
+      // Structure 1: object
+      // The line below is just a shortened version of the file 'treemap_json_data.js'
+      // dataObj = {"name":"p5js", "children":[{"name": "CONTRIBUTING.md", "size": 2292}, {"name": "docs", "children":[ ... ]}] ... } 
+
+      // Structure 2: Array with objects containing all the information
+      var dataArray1 = [{name:"b", size:123}, [{name:"a", size:68}, {name:"e", size:145}], {name:"c", size:234}, {name:"d", size:78}];
+
+      // Structure 3: Array with numbers 
+      var dataArray2 = [1, 2, 3, 4, [2, 3, 4, 1, 1], 6, [4, 1, 1], [2, 3, 4, 1, 1, 2, 2], 9, 10, 11, 12];
+
+      var treemap;
+
+      function setup() {
+        createCanvas(windowWidth, windowHeight);
+
+        // create the treemap
+        treemap = new gd.Treemap(1, 1, width - 3, height - 3, {
+          sort: true,
+          direction: 'both',
+          padding: 0.5,
+        });
+
+        // add data giving a json object and the keys where to find the children, 
+        // the size/count value and optionally what data to store.
+        // Uncomment one of the following:
+        treemap.addData(dataObj, {children:"children", count:"size"});
+        //treemap.addData(dataArray1, {count:"size"});
+        //treemap.addData(dataArray2, {});
+
+        // calculate the treemap
+        treemap.calculate();
+      }
+
+      function draw() {
+        background(255);
+
+        noFill();
+        stroke(0);
+        strokeWeight(0.5);
+
+        // customized draw function. item holds all the information of the treemap element.
+        treemap.draw(function(item) { 
+          var r = min(item.w/4, item.h/4, 5);
+          rect(item.x, item.y, item.w, item.h, r); 
+        });
+
+        noLoop();
+      }
+
+    </script>
+  </body>
+</html>
