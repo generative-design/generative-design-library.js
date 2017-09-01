@@ -124,6 +124,10 @@ the minimum count value of the items in the items array
 
 the maximum count value of the items in the items array
 
+#### level
+
+level of the item; the root node has level 0
+
 #### depth
 
 the depth of the branch; end nodes have depth 0
@@ -189,10 +193,6 @@ Example:
 **Parameters**
 
 -   `drawItemFunction` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** a function that draws one item
-
-### parent
-
-level of the item; the root node has level 0
 
 ## Developer Setup
 

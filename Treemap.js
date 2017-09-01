@@ -101,9 +101,9 @@ function Treemap() {
   * @property level
   * @type {Number}
   */
+  this.level = 0;
   if (this.parent) this.level = this.parent.level + 1;
-  else this.level = 0;
-
+  
   /**
   * the depth of the branch; end nodes have depth 0
   * @property depth
