@@ -119,7 +119,7 @@ function Treemap() {
   this.itemCount = 1;
 
   /**
-  * index of the item in the sorted items array..
+  * index of the item in the sorted items array.
   * @property index
   * @type {Number}
   */
