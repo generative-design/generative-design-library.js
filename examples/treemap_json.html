@@ -12,13 +12,14 @@
 
       // Structure 1: object
       // The line below is just a shortened version of the file 'treemap_json_data.js'
-      // dataObj = {"name":"p5js", "children":[{"name": "CONTRIBUTING.md", "size": 2292}, {"name": "docs", "children":[ ... ]}] ... } 
+      // dataObj = {"name":"p5js", "children":[{"name": "CONTRIBUTING.md", "size": 2292}, {"name": "docs", "children":[ ... ]}], ... } 
 
-      // Structure 2: Array with objects containing all the information
+      // Structure 2: (Nested) array with objects containing all the information
       var dataArray1 = [{name:"b", size:123}, [{name:"a", size:68}, {name:"e", size:145}], {name:"c", size:234}, {name:"d", size:78}];
 
-      // Structure 3: Array with numbers 
+      // Structure 3: (Nested) array with numbers 
       var dataArray2 = [1, 2, 3, 4, [2, 3, 4, 1, 1], 6, [4, 1, 1], [2, 3, 4, 1, 1, 2, 2], 9, 10, 11, 12];
+
 
       var treemap;
 
@@ -50,10 +51,20 @@
         stroke(0);
         strokeWeight(0.5);
 
+//        colorMode(HSB, 360, 100, 100, 100);
+
         // customized draw function. item holds all the information of the treemap element.
-        treemap.draw(function(item) { 
-          var r = min(item.w/4, item.h/4, 5);
-          rect(item.x, item.y, item.w, item.h, r); 
+        // there is lots of information you could use for drawing:
+        // item.x, item.y, item.w, item.h – dimenstions of the rect
+        // item.minCount, item.maxCount - smallest and largest item in this item
+        // item.level, item.depth - how deep is this item nested in the tree? the root node has level 0, an end node has depth 0 
+        // item.itemCount - number of items inside this item, counted recursively
+        // item.index - index of this item inside the parents sorted items array
+        treemap.draw(function(item) {
+          var col = map(item.level, 0, item.root.depth, 150, 255);
+          fill(col);
+          //var r = min(item.w/4, item.h/4, 5);
+          rect(item.x, item.y, item.w, item.h); 
         });
 
         noLoop();
